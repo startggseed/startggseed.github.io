@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="color-scheme" content="light dark">
+    </head>
+    <style>
+        #dropdown {
+            display: none; /* Hide the dropdown initially */
+        }
+    </style>
+    <body>
+        <h1>Seeding</h1>
+        Event Link: <label>
+            <input type="url" id="link" oninput="onKeyOrLinkUpdate()">
+        </label><br>
+
+        start.gg api key: <label>
+            <input type="password" id="apikey" oninput="onKeyOrLinkUpdate()">
+        </label><br>
+
+        <label for="fileSelect">Spreadsheet: </label>
+        <input id="fileSelect" type="file" accept=".csv" /><br><br>
+
+        <p id="phaseText"></p>
+        <select id="dropdown"></select><br><br>
+
+        <button id="processCSV" onclick="applySeeding(
+            document.getElementById('link').value,
+            document.getElementById('apikey').value)">
+            Apply Seeding</button>
+        <br><br><br>
+
+        <h1>Instructions</h1>
+
+        Paste the event link with format "https://www.start.gg/tournament/_____/event/_____"<br>
+        Look below for instructions on api keys<br>
+        For the Spreadsheet, upload a .csv with any two columns labeled "Phase Seed" and "Seed ID"<br>
+        If there are no column labels, the first column will be treated as Phase Seed, and the second column as Seed ID<br><br>
+
+        To get a start.gg api key:<br>
+        1. Go to start.gg<br>
+        2. Click your profile icon in the bottom left and choose "Developer Settings"<br>
+        3. Press "Create new token"<br>
+        4. Give it a description and click save<br>
+        5. Copy your token to the "start.gg api key" entry above<br>
+
+        <br><br>Message @glodenboi on Discord with errors/questions
+    </body>
+    <script src="app.js"></script>
+</html>
